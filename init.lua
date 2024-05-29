@@ -36,10 +36,41 @@ augroup END
 ]]
 
 -- Set tab width to 2 spaces
-vim.o.tabstop = 2
+vim.o.tabstop = 4
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
 vim.o.expandtab = true
 
 -- Ensure the settings apply to different file types
 vim.cmd('filetype plugin indent on')
+
+-- Automatically insert a closing parenthesis when typing an opening parenthesis
+vim.api.nvim_set_keymap('i', '(', '()<Left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '{', '\n{\n}<up><CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '[', '[]<Left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '((', '()<Right>', { noremap = true, silent = true })
+
+--Automatically insert public when typing pub
+vim.api.nvim_set_keymap('i', 'pub', 'public', { noremap = true, silent = true })
+
+--Automatically insert public when typing pri
+vim.api.nvim_set_keymap('i', 'pri', 'private', { noremap = true, silent = true })
+
+-- Map Ctrl+A to select all text
+vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', { noremap = true, silent = true })
+
+-- Map Ctrl+C to copy selected text to clipboard
+vim.api.nvim_set_keymap('v', '<C-c>', '"+y', { noremap = true, silent = true })
+
+-- Map Ctrl+V to paste text from clipboard
+vim.api.nvim_set_keymap('n', '<C-v>', '"+p', { noremap = true, silent = true })
+
+-- Map Ctrl+S to :w
+vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+
+-- Map Ctrl+] to jump to definition using coc.nvim
+vim.api.nvim_set_keymap('n', 'f12>', ':CocCommand gd<CR>', { noremap = true, silent = true })
+ 
+-- Visual Mode tab move
+vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true })-- In visual mode
+vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
