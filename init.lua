@@ -6,7 +6,6 @@ vim.cmd [[ call plug#begin('~/.local/share/nvim/plugged') ]]
 
 -- Add plugins here
 vim.cmd [[ Plug 'OmniSharp/omnisharp-vim' ]]
-vim.cmd [[ Plug 'morhetz/gruvbox' ]]
 vim.cmd [[ Plug 'neoclide/coc.nvim', {'branch': 'release'} ]]
 vim.cmd [[ call plug#end() ]]
 
@@ -72,5 +71,5 @@ vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', 'f12>', ':CocCommand gd<CR>', { noremap = true, silent = true })
  
 -- Visual Mode tab move
-vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true })-- In visual mode
+vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
