@@ -36,8 +36,8 @@ augroup END
 
 -- Set tab width to 2 spaces
 vim.o.tabstop = 4
-vim.o.shiftwidth = 2
-vim.o.softtabstop = 2
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
 vim.o.expandtab = true
 
 -- Ensure the settings apply to different file types
@@ -73,3 +73,15 @@ vim.api.nvim_set_keymap('n', 'f12>', ':CocCommand gd<CR>', { noremap = true, sil
 -- Visual Mode tab move
 vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
+
+-- Vex on space in normal mode
+vim.api.nvim_set_keymap('n', '<space>', ':Vex<CR>', {noremap = true, silent =true})
+
+-- Shift q to quit
+vim.api.nvim_set_keymap('n', '<S-q>', ':q<CR>', {noremap = true, silent =true})
+
+-- gs in insert mode creates a getter and setter
+vim.api.nvim_set_keymap('i', 'gs', '{ get => ; set =>  = value; }', {noremap = true, silent =true})
+
+-- void auto formats   
+vim.api.nvim_set_keymap('i', 'void', '\nvoid()\n{\n}<up><CR><up><up><space>', {noremap = true, silent =true})
