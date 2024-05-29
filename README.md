@@ -3,7 +3,7 @@
 Super stupid and simple neovim init file for basic IDE like developement.
 
 ## Remaps
-Tab functions visual tab right and left.
+Tab functions visual tab right and left. \n
 Cntrl+S to save\write.
 Cntrl+C and Cntrl+P to copy paste from clip board.
 Auto closing braces {}[]().
