@@ -29,7 +29,8 @@ local s = {
     lightcyan    = 109,
     darkgrey     = 239,
     lightgrey    = 145,
-    aqua         = 121
+    aqua         = 121,
+    offWhite     = 187
 }
 
 -- Function to set color for a highlight group
@@ -62,7 +63,7 @@ local syntax_colors = {
     PreCondit     = s.white,
     StorageClass  = s.blue,
     Structure     = s.blue,
-    Typedef       = s.aqua,
+    Typedef       = s.red,
     SpecialChar   = s.white,
     SpecialComment = s.white,
     Tag           = s.aqua,
@@ -70,8 +71,8 @@ local syntax_colors = {
     SpecialKey    = s.white,
     NonText       = s.white,
     Title         = s.white,
-    Visual        = s.white,
-    Search        = s.white,
+    Visual        = s.offWhite,
+    Search        = s.offWhite,
     Directory     = s.white,
     TabLineFill   = s.white,
     DiffAdd       = s.white,

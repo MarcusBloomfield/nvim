@@ -1,4 +1,3 @@
--- Print "Hello SUMO"
 print("Hello SUMO")
 
 -- Specify a directory for plugins
@@ -40,6 +39,15 @@ vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.expandtab = true
 
+vim.o.wrap = false
+vim.o.cursorline = true
+
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.signcolumn = "yes"
+vim.o.splitright = true
+vim.o.splitbelow = true
+
 -- Ensure the settings apply to different file types
 vim.cmd('filetype plugin indent on')
 
@@ -48,6 +56,9 @@ vim.api.nvim_set_keymap('i', '(', '()<Left>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '{', '\n{\n}<up><CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '[', '[]<Left>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '((', '()<Right>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '"', '""', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<', '<>', { noremap = true, silent = true })
+
 
 --Automatically insert public when typing pub
 vim.api.nvim_set_keymap('i', 'pub', 'public', { noremap = true, silent = true })
@@ -64,6 +75,9 @@ vim.api.nvim_set_keymap('v', '<C-c>', '"+y', { noremap = true, silent = true })
 -- Map Ctrl+V to paste text from clipboard
 vim.api.nvim_set_keymap('n', '<C-v>', '"+p', { noremap = true, silent = true })
 
+-- Map Ctrl+X to cut text
+vim.api.nvim_set_keymap('n', '<C-x>', '"+v', { noremap = true, silent = true })
+
 -- Map Ctrl+S to :w
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
 
@@ -76,6 +90,7 @@ vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
 
 -- Vex on space in normal mode
 vim.api.nvim_set_keymap('n', '<space>', ':Vex<CR>', {noremap = true, silent =true})
+vim.api.nvim_set_keymap('n', '<S-space>', ':Ex<CR>', {noremap = true, silent =true})
 
 -- Shift q to quit
 vim.api.nvim_set_keymap('n', '<S-q>', ':q<CR>', {noremap = true, silent =true})
@@ -84,4 +99,7 @@ vim.api.nvim_set_keymap('n', '<S-q>', ':q<CR>', {noremap = true, silent =true})
 vim.api.nvim_set_keymap('i', 'gs', '{ get => ; set =>  = value; }', {noremap = true, silent =true})
 
 -- void auto formats   
-vim.api.nvim_set_keymap('i', 'void', '\nvoid()\n{\n}<up><CR><up><up><space>', {noremap = true, silent =true})
+vim.api.nvim_set_keymap('i', 'void', 'void()\n{\n}<up><CR><up><up><space>', {noremap = true, silent =true})
+
+-- if statements auto formats
+vim.api.nvim_set_keymap('i', 'if(', 'if()\n{\n}<up><CR><up><up><space>', {noremap = true, silent =true})
