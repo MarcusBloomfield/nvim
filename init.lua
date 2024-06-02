@@ -57,7 +57,7 @@ vim.api.nvim_set_keymap('i', '{', '\n{\n}<up><CR>', { noremap = true, silent = t
 vim.api.nvim_set_keymap('i', '[', '[]<Left>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '((', '()<Right>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '"', '""', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<', '<>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<', '<><Left>', { noremap = true, silent = true })
 
 
 --Automatically insert public when typing pub
@@ -102,4 +102,6 @@ vim.api.nvim_set_keymap('i', 'gs', '{ get => ; set =>  = value; }', {noremap = t
 vim.api.nvim_set_keymap('i', 'void', 'void()\n{\n}<up><CR><up><up><space>', {noremap = true, silent =true})
 
 -- if statements auto formats
-vim.api.nvim_set_keymap('i', 'if(', 'if()\n{\n}<up><CR><up><up><space>', {noremap = true, silent =true})
+vim.api.nvim_set_keymap('i', 'if(', 'if()\n{\n}<up><up><Right><Right>', {noremap = true, silent =true})
+-- if statements auto formats
+vim.api.nvim_set_keymap('i', 'serf', '[SerializeField]<space>', {noremap = true, silent =true})
