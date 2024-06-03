@@ -80,6 +80,7 @@ vim.api.nvim_set_keymap('n', '<C-x>', '"+v', { noremap = true, silent = true })
 
 -- Map Ctrl+S to :w
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-s>', ':w<CR>', { noremap = true, silent = true })
 
 -- Map Ctrl+] to jump to definition using coc.nvim
 vim.api.nvim_set_keymap('n', 'f12>', ':CocCommand gd<CR>', { noremap = true, silent = true })
@@ -94,6 +95,8 @@ vim.api.nvim_set_keymap('n', '<S-space>', ':Ex<CR>', {noremap = true, silent =tr
 
 -- Shift q to quit
 vim.api.nvim_set_keymap('n', '<S-q>', ':q<CR>', {noremap = true, silent =true})
+-- Shift t to open new tab
+vim.api.nvim_set_keymap('n', '<S-t>', '<C-w><S-T>', {noremap = true, silent =true})
 
 -- gs in insert mode creates a getter and setter
 vim.api.nvim_set_keymap('i', 'gs', '{ get => ; set =>  = value; }', {noremap = true, silent =true})
@@ -105,3 +108,5 @@ vim.api.nvim_set_keymap('i', 'void', 'void()\n{\n}<up><CR><up><up><space>', {nor
 vim.api.nvim_set_keymap('i', 'if(', 'if()\n{\n}<up><up><Right><Right>', {noremap = true, silent =true})
 -- if statements auto formats
 vim.api.nvim_set_keymap('i', 'serf', '[SerializeField]<space>', {noremap = true, silent =true})
+
+vim.api.nvim_set_keymap('i', 'for(', 'for(int i = 0; i < x; i++)<CR>{<CR>}<up><up>', {noremap = true, silent =true})
