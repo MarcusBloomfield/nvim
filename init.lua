@@ -53,7 +53,7 @@ vim.cmd('filetype plugin indent on')
 
 -- Automatically insert a closing parenthesis when typing an opening parenthesis
 vim.api.nvim_set_keymap('i', '(', '()<Left>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '{', '\n{\n}<up><CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '{', '\n{\n}<up>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '[', '[]<Left>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '((', '()<Right>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '"', '""', { noremap = true, silent = true })
@@ -61,10 +61,10 @@ vim.api.nvim_set_keymap('i', '<', '<><Left>', { noremap = true, silent = true })
 
 
 --Automatically insert public when typing pub
-vim.api.nvim_set_keymap('i', 'pub', 'public', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'pub', 'public ', { noremap = true, silent = true })
 
 --Automatically insert public when typing pri
-vim.api.nvim_set_keymap('i', 'pri', 'private', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'pri', 'private ', { noremap = true, silent = true })
 
 -- Map Ctrl+A to select all text
 vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', { noremap = true, silent = true })
@@ -80,7 +80,7 @@ vim.api.nvim_set_keymap('n', '<C-x>', '"+v', { noremap = true, silent = true })
 
 -- Map Ctrl+S to :w
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-s>', '<ESC>:w<CR>', { noremap = true, silent = true })
 
 -- Map Ctrl+] to jump to definition using coc.nvim
 vim.api.nvim_set_keymap('n', 'f12>', ':CocCommand gd<CR>', { noremap = true, silent = true })
@@ -91,7 +91,7 @@ vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
 
 -- Vex on space in normal mode
 vim.api.nvim_set_keymap('n', '<space>', ':Vex<CR>', {noremap = true, silent =true})
-vim.api.nvim_set_keymap('n', '<S-space>', ':Ex<CR>', {noremap = true, silent =true})
+vim.api.nvim_set_keymap('n', '<S><space>', ':Ex<CR>', {noremap = true, silent =true})
 
 -- Shift q to quit
 vim.api.nvim_set_keymap('n', '<S-q>', ':q<CR>', {noremap = true, silent =true})
@@ -99,10 +99,11 @@ vim.api.nvim_set_keymap('n', '<S-q>', ':q<CR>', {noremap = true, silent =true})
 vim.api.nvim_set_keymap('n', '<S-t>', '<C-w><S-T>', {noremap = true, silent =true})
 
 -- gs in insert mode creates a getter and setter
-vim.api.nvim_set_keymap('i', 'gs', '{ get => ; set =>  = value; }', {noremap = true, silent =true})
+vim.api.nvim_set_keymap('i', 'gese', '{ get => ; set =>  = value; }', {noremap = true, silent =true})
 
 -- void auto formats   
-vim.api.nvim_set_keymap('i', 'void', 'void()\n{\n}<up><CR><up><up><space>', {noremap = true, silent =true})
+vim.api.nvim_set_keymap('i', 'void', 'void()\n{\n}<ESC>', {noremap = true, silent =true})
+vim.api.nvim_set_keymap('i', 'pbv', 'public void()\n{\n}<ESC>', {noremap = true, silent =true})
 
 -- if statements auto formats
 vim.api.nvim_set_keymap('i', 'if(', 'if()\n{\n}<up><up><Right><Right>', {noremap = true, silent =true})
