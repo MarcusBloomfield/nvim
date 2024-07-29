@@ -90,8 +90,7 @@ vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true }
 vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
 
 -- Vex on space in normal mode
-vim.api.nvim_set_keymap('n', 'v', ':Vex<CR>', {noremap = true, silent =true})
-vim.api.nvim_set_keymap('n', '<space>', ':Ex<CR>', {noremap = true, silent =true})
+vim.api.nvim_set_keymap('n', '<space>', ':Vex<CR>', {noremap = true, silent =true})
 
 -- Shift q to quit
 vim.api.nvim_set_keymap('n', '<S-q>', ':q<CR>', {noremap = true, silent =true})
