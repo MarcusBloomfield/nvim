@@ -47,6 +47,7 @@ vim.o.smartcase = true
 vim.o.signcolumn = "yes"
 vim.o.splitright = true
 vim.o.splitbelow = true
+vim.o.autoindent = true
 
 -- Ensure the settings apply to different file types
 vim.cmd('filetype plugin indent on')
@@ -92,6 +93,9 @@ vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
 -- Vex on space in normal mode
 vim.api.nvim_set_keymap('n', '<space>', ':Vex<CR>', {noremap = true, silent =true})
 
+-- ex on  n in normal mode 
+vim.api.nvim_set_keymap('n', '<S-n>', ':Ex<CR>', {noremap = true, silent = true})
+
 -- Shift q to quit
 vim.api.nvim_set_keymap('n', '<S-q>', ':q<CR>', {noremap = true, silent =true})
 -- Shift t to open new tab
@@ -110,3 +114,18 @@ vim.api.nvim_set_keymap('i', 'if(', 'if()\n{\n}<up><up><Right><Right>', {noremap
 vim.api.nvim_set_keymap('i', 'serf', '[SerializeField]<space>', {noremap = true, silent =true})
 
 vim.api.nvim_set_keymap('i', 'for(', 'for(int i = 0; i < x; i++)<CR>{<CR>}<up><up>', {noremap = true, silent =true})
+
+-- GoToDefinition
+vim.api.nvim_set_keymap('n', 'gd', ':call CocActionAsync("jumpDefinition", "vsplit")<CR>', {noremap =true, silent=true})
+
+--GoToDefinition but do not split windows
+vim.api.nvim_set_keymap('n', 'dg', ':call CocActionAsync("jumpDefinition")<CR>', {noremap =true, silent=true})
+
+-- Find all refernces 
+vim.api.nvim_set_keymap("n", "gr",":call CocActionAsync('jumpReferences', 'vsplit')<CR>", {noremap=true, silent=true})
+
+-- Rename Varibale
+vim.api.nvim_set_keymap("n","<C-n>", ":call CocActionAsync('rename')<CR>", {noremap=true, silent=true})
+
+--Rebind ; to :
+vim.api.nvim_set_keymap("n",";", ":", {noremap=true, silent=true})
