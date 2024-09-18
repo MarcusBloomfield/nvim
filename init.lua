@@ -48,6 +48,7 @@ vim.o.signcolumn = "yes"
 vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.autoindent = true
+vim.o.ruler = true
 
 -- Ensure the settings apply to different file types
 vim.cmd('filetype plugin indent on')
@@ -57,14 +58,14 @@ vim.api.nvim_set_keymap('i', '(', '()<Left>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '{', '\n{\n}<up>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '[', '[]<Left>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '((', '()<Right>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '"', '""', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '"', '""<Left>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<', '<><Left>', { noremap = true, silent = true })
 
 
 --Automatically insert public when typing pub
 vim.api.nvim_set_keymap('i', 'pub', 'public ', { noremap = true, silent = true })
 
---Automatically insert public when typing pri
+--Automatically insert private when typing pri
 vim.api.nvim_set_keymap('i', 'pri', 'private ', { noremap = true, silent = true })
 
 -- Map Ctrl+A to select all text
@@ -83,9 +84,6 @@ vim.api.nvim_set_keymap('n', '<C-x>', '"+v', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-s>', '<ESC>:w<CR>', { noremap = true, silent = true })
 
--- Map Ctrl+] to jump to definition using coc.nvim
-vim.api.nvim_set_keymap('n', 'f12>', ':CocCommand gd<CR>', { noremap = true, silent = true })
- 
 -- Visual Mode tab move
 vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
@@ -104,15 +102,12 @@ vim.api.nvim_set_keymap('n', '<S-t>', '<C-w><S-T>', {noremap = true, silent =tru
 -- gs in insert mode creates a getter and setter
 vim.api.nvim_set_keymap('i', 'gese', '{ get => ; set =>  = value; }', {noremap = true, silent =true})
 
--- void auto formats   
-vim.api.nvim_set_keymap('i', 'void', 'void()\n{\n}<ESC>', {noremap = true, silent =true})
-vim.api.nvim_set_keymap('i', 'pbv', 'public void()\n{\n}<ESC>', {noremap = true, silent =true})
-
 -- if statements auto formats
 vim.api.nvim_set_keymap('i', 'if(', 'if()\n{\n}<up><up><Right><Right>', {noremap = true, silent =true})
--- if statements auto formats
+-- [SerializeField] auto Type
 vim.api.nvim_set_keymap('i', 'serf', '[SerializeField]<space>', {noremap = true, silent =true})
 
+-- for autocompletion
 vim.api.nvim_set_keymap('i', 'for(', 'for(int i = 0; i < x; i++)<CR>{<CR>}<up><up>', {noremap = true, silent =true})
 
 -- GoToDefinition
@@ -127,5 +122,11 @@ vim.api.nvim_set_keymap("n", "gr",":call CocActionAsync('jumpReferences', 'vspli
 -- Rename Varibale
 vim.api.nvim_set_keymap("n","<C-n>", ":call CocActionAsync('rename')<CR>", {noremap=true, silent=true})
 
---Rebind ; to :
+--Rebind : to ;
 vim.api.nvim_set_keymap("n",";", ":", {noremap=true, silent=true})
+
+--Bind Format File to F
+vim.api.nvim_set_keymap("n", "<S-f>", ":call CocActionAsync('format')<CR>", {noremap=true, silent=true})
+
+--Bind ; in input mode to append ; at the end of the line everytime
+vim.api.nvim_set_keymap("i",";","<ESC><S-a>;<ESC>",{noremap=true, silent=true})
