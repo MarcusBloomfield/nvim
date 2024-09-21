@@ -40,7 +40,7 @@ end
 
 -- Apply colors to various elements using the SetColor function
 local syntax_colors = {
-    Normal        = s.white,
+    Normal        = s.green,
     Comment       = s.green,
     Constant      = s.cyan,
     Identifier    = s.fg,
@@ -71,7 +71,7 @@ local syntax_colors = {
     SpecialKey    = s.white,
     NonText       = s.white,
     Title         = s.white,
-    Visual        = s.offWhite,
+    Visual        = s.white,
     Search        = s.white,
     Directory     = s.white,
     TabLineFill   = s.white,

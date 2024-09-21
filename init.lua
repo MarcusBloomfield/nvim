@@ -33,7 +33,7 @@ augroup coc
 augroup END
 ]]
 
--- Set tab width to 2 spaces
+--vim options
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
@@ -49,18 +49,23 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.autoindent = true
 vim.o.ruler = true
+vim.o.scrolloff = 25 
 
 -- Ensure the settings apply to different file types
 vim.cmd('filetype plugin indent on')
 
--- Automatically insert a closing parenthesis when typing an opening parenthesis
+-- Automatically insert a closing parenthesis when typing an opening parenthesis and if double tap starting bracket insert closing and put cursor to the right
 vim.api.nvim_set_keymap('i', '(', '()<Left>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '{', '\n{\n}<up>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '[', '[]<Left>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '((', '()<Right>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '[', '[]<Left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '[[', '[]<Right>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '"', '""<Left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '""', '""<Right>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<', '<><Left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<<', '<><Right>', { noremap = true, silent = true })
 
+-- Automatically format curly brackets
+vim.api.nvim_set_keymap('i', '{', '\n{\n}<up>', { noremap = true, silent = true })
 
 --Automatically insert public when typing pub
 vim.api.nvim_set_keymap('i', 'pub', 'public ', { noremap = true, silent = true })
@@ -129,4 +134,17 @@ vim.api.nvim_set_keymap("n",";", ":", {noremap=true, silent=true})
 vim.api.nvim_set_keymap("n", "<S-f>", ":call CocActionAsync('format')<CR>", {noremap=true, silent=true})
 
 --Bind ; in input mode to append ; at the end of the line everytime
+
 vim.api.nvim_set_keymap("i",";","<ESC><S-a>;<ESC>",{noremap=true, silent=true})
+
+-- make the window biger vertically
+vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]],{noremap=true, silent=true}) 
+
+-- make the window smaller vertically
+vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]],{noremap=true, silent=true})
+
+ -- make the window bigger horizontally by pressing shift and =
+vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]],{noremap=true, silent=true}) 
+
+-- make the window smaller horizontally by pressing shift and -
+vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]],{noremap=true, silent=true}) 
