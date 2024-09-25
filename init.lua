@@ -148,3 +148,6 @@ vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]],{noremap=true, silent
 
 -- make the window smaller horizontally by pressing shift and -
 vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]],{noremap=true, silent=true}) 
+
+-- bind wt to create new window
+vim.api.nvim_set_keymap("n","wt",":tabnew<cr>",{noremap=true, silent=true})
