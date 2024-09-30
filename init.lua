@@ -66,6 +66,8 @@ vim.api.nvim_set_keymap('i', '<<', '<><Right>', { noremap = true, silent = true 
 
 -- Automatically format curly brackets
 vim.api.nvim_set_keymap('i', '{', '\n{\n}<up>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '{ ', '}<Right>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '{{', '}<Left>', { noremap = true, silent = true })
 
 --Automatically insert public when typing pub
 vim.api.nvim_set_keymap('i', 'pub', 'public ', { noremap = true, silent = true })
