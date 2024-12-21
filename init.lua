@@ -49,31 +49,21 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.autoindent = true
 vim.o.ruler = true
-vim.o.scrolloff = 25 
+vim.o.scrolloff = 0 
 
 -- Ensure the settings apply to different file types
 vim.cmd('filetype plugin indent on')
 
 -- Automatically insert a closing parenthesis when typing an opening parenthesis and if double tap starting bracket insert closing and put cursor to the right
-vim.api.nvim_set_keymap('i', '(', '()<Left>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '((', '()<Right>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '[', '[]<Left>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '[[', '[]<Right>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '"', '""<Left>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '""', '""<Right>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<', '<><Left>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<<', '<><Right>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '((', '()<Left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '[[', '[]<Left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '""', '""<Left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<<', '<><Left>', { noremap = true, silent = true })
 
 -- Automatically format curly brackets
-vim.api.nvim_set_keymap('i', '{', '\n{\n}<up>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '{ ', '}<Right>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '{{', '}<Left>', { noremap = true, silent = true })
-
---Automatically insert public when typing pub
-vim.api.nvim_set_keymap('i', 'pub', 'public ', { noremap = true, silent = true })
-
---Automatically insert private when typing pri
-vim.api.nvim_set_keymap('i', 'pri', 'private ', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '{{', '\n{\n}<up>', { noremap = true, silent = true })
+--vim.api.nvim_set_keymap('i', '{ ', '}<Right>', { noremap = true, silent = true })
+--vim.api.nvim_set_keymap('i', '{{', '}<Left>', { noremap = true, silent = true })
 
 -- Map Ctrl+A to select all text
 vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', { noremap = true, silent = true })
@@ -109,6 +99,9 @@ vim.api.nvim_set_keymap('n', '<S-t>', '<C-w><S-T>', {noremap = true, silent =tru
 -- gs in insert mode creates a getter and setter
 vim.api.nvim_set_keymap('i', 'gese', '{ get => ; set =>  = value; }', {noremap = true, silent =true})
 
+-- tg is gt back backwards
+vim.api.nvim_set_keymap('n', 'tg', 'gT', {noremap = true, silent =true})
+
 -- if statements auto formats
 vim.api.nvim_set_keymap('i', 'if(', 'if()\n{\n}<up><up><Right><Right>', {noremap = true, silent =true})
 -- [SerializeField] auto Type
@@ -137,7 +130,7 @@ vim.api.nvim_set_keymap("n", "<S-f>", ":call CocActionAsync('format')<CR>", {nor
 
 --Bind ; in input mode to append ; at the end of the line everytime
 
-vim.api.nvim_set_keymap("i",";","<ESC><S-a>;<ESC>",{noremap=true, silent=true})
+vim.api.nvim_set_keymap("i",";;","<ESC><S-a>;<ESC>",{noremap=true, silent=true})
 
 -- make the window biger vertically
 vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]],{noremap=true, silent=true}) 
@@ -152,4 +145,4 @@ vim.keymap.set("n", "+", [[<cmd>horizontal resize +2<cr>]],{noremap=true, silent
 vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]],{noremap=true, silent=true}) 
 
 -- bind wt to create new window
-vim.api.nvim_set_keymap("n","wt",":tabnew<cr>",{noremap=true, silent=true})
+vim.api.nvim_set_keymap("n","<S-W>",":tabnew<cr>",{noremap=true, silent=true})
