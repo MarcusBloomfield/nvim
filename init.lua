@@ -6,6 +6,8 @@ vim.cmd [[ call plug#begin('~/.local/share/nvim/plugged') ]]
 -- Add plugins here
 vim.cmd [[ Plug 'OmniSharp/omnisharp-vim' ]]
 vim.cmd [[ Plug 'neoclide/coc.nvim', {'branch': 'release'} ]]
+vim.cmd [[ Plug 'nvim-lua/plenary.nvim']]
+vim.cmd [[ Plug 'nvim-telescope/telescope.nvim', {'branch': '0.1.x'} ]]
 vim.cmd [[ call plug#end() ]]
 
 -- Set line numbers to enabled
@@ -146,3 +148,5 @@ vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]],{noremap=true, silent
 
 -- bind wt to create new window
 vim.api.nvim_set_keymap("n","<S-W>",":tabnew<cr>",{noremap=true, silent=true})
+
+vim.api.nvim_set_keymap("n","<C-f>",":Telescope find_files <cr>", {noremap=true, silent=true})
